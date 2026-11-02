@@ -26,6 +26,14 @@ Scope: purchase decisions made in **January 2026** (delivery days 2 Jan – 1 Fe
 
 The forecast is useful (clearly beats persistence) but **systematically high**, mostly when wind is strong (actual outturn plateaus near 17–18 GW while forecasts reach 21 GW). Part of the offset may be a definitional/scope difference between WINDFOR and FUELHH rather than pure forecast skill — worth confirming with Elexon. For procurement: don't plan on the average miss; plan on the P95 shortfall.
 
+## Interactions
+
+- **Day heat-strip:** 31 tiles shaded by that day's forecast error; click to jump, or use ← / → keys.
+- **Confidence slider:** recomputes "wind to rely on" and the thermal cover to hold, from the empirical error quantiles (50–99 %).
+- **Series chips** toggle chart lines; hovering the chart highlights the matching table row (and vice versa).
+- **Cut-off presets** (07:45 / 09:50 / 11:50) re-run the whole analysis for that decision time.
+- **Accuracy tab:** click a daily bar to open that day. Light/dark theme (follows system, remembered), reduced-motion respected.
+
 ## How the analysis works
 
 - **Decision forecast.** For each delivery hour on day D, take the latest WINDFOR record with `publishTime` ≤ (D-1 at the cut-off). Default cut-off **09:50** is an *assumption* (typical day-ahead gate closure) and is adjustable in the UI. Later issues are shown dashed as "you would not have had these".

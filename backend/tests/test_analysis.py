@@ -96,3 +96,9 @@ def test_day_has_corrected_series_below_forecast_when_biased():
     j = client.get("/api/day", params={"date": "2026-01-21"}).json()
     assert j["band"]["mean_err"] > 0
     assert all(r["corrected"] <= r["forecast"] for r in j["rows"])
+
+
+def test_band_exposes_monotone_quantiles():
+    band = client.get("/api/day", params={"date": "2026-01-21"}).json()["band"]
+    vals = [band["quantiles"][str(i)] for i in range(50, 100)]
+    assert vals == sorted(vals) and band["quantiles"]["95"] == band["p95_err"]

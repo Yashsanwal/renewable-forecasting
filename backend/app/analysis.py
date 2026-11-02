@@ -122,6 +122,8 @@ def error_band(ds: Dataset, target_day: date, cutoff: str):
     err = [r["error"] for r in recs]
     return {
         "mean_err": sum(err) / len(err) if err else None,
+        # over-forecast quantiles 50..99: lets the UI trade confidence level vs. cover needed
+        "quantiles": {str(q): quantile(err, q / 100) for q in range(50, 100)},
         "lo_err": quantile(err, 0.10), "hi_err": quantile(err, 0.90),
         "p95_err": quantile(err, 0.95), "p05_err": quantile(err, 0.05),
         "history_days": len({r["day"] for r in recs}), "in_sample": in_sample,
