@@ -1,0 +1,2 @@
+# Used by Vercel's Python runtime for api/index.py (same as backend/requirements.txt minus the server)
+fastapi>=0.110
