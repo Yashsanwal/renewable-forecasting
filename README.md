@@ -7,7 +7,7 @@ A web app for a UK energy utility's day-ahead trading desk. It answers two quest
 
 Scope: purchase decisions made in **January 2026** (delivery days 2 Jan – 1 Feb 2026).
 
-- **Live app:** `<ADD VERCEL URL AFTER DEPLOY>`
+- **Live app:** `<https://renewable-forecasting.vercel.app>`
 - **Video demo:** `<ADD UNLISTED YOUTUBE URL>`
 
 > **AI disclosure:** this project was built with the assistance of Claude (Anthropic) via Claude Code — for code generation, analysis design and documentation. All numbers were checked against the raw Elexon data, and the analysis logic is covered by tests.
